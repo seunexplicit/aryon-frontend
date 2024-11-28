@@ -32,6 +32,7 @@ const TablePagination = ({
           href="#"
           isActive={isFirstPage}
           onClick={() => onPageChange(1)}
+          size="default"
         >
           1
         </PaginationLink>

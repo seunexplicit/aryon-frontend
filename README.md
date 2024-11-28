@@ -1,50 +1,82 @@
-# React + TypeScript + Vite
+# User and Post Management Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application built with TypeScript that provides a user interface for managing users and their posts. The application features a clean, responsive design with pagination and dynamic routing.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Management**
+  - View list of users with detailed information
+  - Paginated user list for better performance
+  - Display user details including name, email, and address
+  
+- **Post Management**
+  - View posts for each user
+  - Delete posts functionality
+  - Responsive grid layout for posts
 
-## Expanding the ESLint configuration
+## 🛠 Technology Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend Framework**: React 18 with TypeScript
+- **State Management**: 
+  - Zustand for global state
+  - React Query for server state
+- **Styling**: 
+  - TailwindCSS for styling
+  - Radix UI components
+  - Lucide React for icons
+- **Build Tool**: Vite
 
-- Configure the top-level `parserOptions` property like this:
+## 📦 Prerequisites
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Before running this project, make sure you have:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Node.js (v14 or higher)
+- npm or yarn package manager
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🚀 Getting Started
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd project-directory
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+   The application will start running at `http://localhost:5173`
+
+## 🏗 Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build the application for production
+- `npm run lint` - Run ESLint for code quality
+- `npm run preview` - Preview the production build locally
+
+## 📱 Application Structure
+
+The application consists of two main pages:
+
+1. **Users Page** (`/`)
+   - Displays a table of users with their details
+   - Includes pagination for better performance
+   - Each user row is clickable and navigates to their posts
+
+2. **Posts Page** (`/users/:userId/posts`)
+   - Shows all posts for a selected user
+   - Displays user information at the top
+   - Grid layout of post cards
+   - Ability to delete posts
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
