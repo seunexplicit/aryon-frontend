@@ -24,7 +24,7 @@ export const UsersPage = () => {
     return (
         <div className="grid grid-cols-1 gap-6">
             <h1 className="text-6xl font-bold mb-4">Users</h1>
-            <Table className="border">
+            <Table className="border rounded-md">
                 <TableHeader>
                 <TableRow>
                     <TableHead>Full Name</TableHead>
