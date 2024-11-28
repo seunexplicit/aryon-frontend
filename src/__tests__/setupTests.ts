@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom';
-import { server } from './mocks/server';
 
 Object.defineProperty(global, 'importMeta', {
     writable: true,
@@ -9,7 +8,3 @@ Object.defineProperty(global, 'importMeta', {
       },
     },
   });
-
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
