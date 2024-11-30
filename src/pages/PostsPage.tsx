@@ -1,13 +1,12 @@
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router"
 
+import { useUserPostsQuery } from "@/api";
 import useUserStore from "@/store/userStore";
 import usePostStore from "@/store/postStore";
 import { Button } from "@/components/ui/button"
 import { PostCard } from "@/components/elements/PostCard";
 import { QueryEffect } from "@/components/elements/QueryEffect";
-
-import { useUserPostsQuery } from "../api";
 
 export const PostsPage = () => {
     const { user } = useUserStore();

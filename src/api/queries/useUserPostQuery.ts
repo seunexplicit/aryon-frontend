@@ -1,14 +1,14 @@
+import { useEffect } from "react";
+
 import { useParams } from "react-router";
 
+import { Post } from "@/types";
+import useUserStore from "@/store/userStore";
+import usePostStore from "@/store/postStore";
+import { environmentVar } from "@/lib/constant";
 import { useQuery } from "@tanstack/react-query";
 
 import { useUserQuery } from "./useUsersQuery";
-import useUserStore from "../../store/userStore";
-import usePostStore from "../../store/postStore";
-import { useEffect } from "react";
-import { Post } from "../../types";
-
-const BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 export const useUserPostsQuery = () => {
   const { userId } = useParams();
@@ -35,7 +35,7 @@ export const useUserPostsQuery = () => {
     async () => {
       try {
         const response = await fetch(
-          `${BASE_URL}/api/users/${userId}/posts`
+          `${environmentVar.BASE_URL}/api/users/${userId}/posts`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

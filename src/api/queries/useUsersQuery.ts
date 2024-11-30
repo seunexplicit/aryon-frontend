@@ -1,9 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-
-import { User, UserAddress } from "../../types";
-import useUserStore from "@/store/userStore";
-
-const BASE_URL = import.meta.env.VITE_API_BASE_URL
+import useUserStore from '@/store/userStore';
+import { environmentVar } from '@/lib/constant';
+import { useQuery } from '@tanstack/react-query';
+import { User, UserAddress } from '@/types';
 
 export const useUsersQuery = () => {
     const { currentPage } = useUserStore()
@@ -11,7 +9,7 @@ export const useUsersQuery = () => {
     const query = useQuery<{ users: UserAddress[], pagination: { totalPages: number, pages: number} }>(
         ['users', currentPage],
         async () => {
-            const response = await fetch(`${BASE_URL}/api/users?page=${currentPage}&limit=4`);
+            const response = await fetch(`${environmentVar.BASE_URL}/api/users?page=${currentPage}&limit=4`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -27,7 +25,7 @@ export const useUserQuery = (userId: string) => {
     const query = useQuery<{ user: User }>({
         queryKey: ['user', userId],
         queryFn: async () => {
-            const response = await fetch(`${BASE_URL}/api/users/${userId}`);
+            const response = await fetch(`${environmentVar.BASE_URL}/api/users/${userId}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
